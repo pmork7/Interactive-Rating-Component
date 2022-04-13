@@ -5,45 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Overpass">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
   <title>Frontend Mentor | Interactive rating component</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+    body {
+      font-family: 'Overpass', serif;
+    }
   </style>
 </head>
 <body>
-
+  <main>
   <!-- Rating state start -->
+    <section class="content-box">
+      <div class="star-box">
+        <img src="images/icon-star.svg">
+      </div>
+      <div class="submit-picture" style="display:none">
+        <img src="images/illustration-thank-you.svg">
+      </div>
+      <div id="ratings-readout" style="display:none">
+      </div>
+      <h1 id="ratings-heading">
+        How did we do?
+      </h1>
+      <h1 id="submit-heading" style="display:none">
+        Thank you!
+      </h1>
+      <p id="ratings-paragraph">
+        Please let us know how we did with your support request. All feedback is appreciated
+        to help us improve our offering!
+      </p>
+      <p id="submit-paragraph" style="display:none">
+        We appreciate you taking the time to give a rating.
+        If you ever need more support don't hesitate to get in touch!
+      </p>
+      <ul id="ratings-list">
+        <li class="ratings-button" id="button-1"><p>1</p></li>
+        <li class="ratings-button" id="button-2"><p>2</p></li>
+        <li class="ratings-button" id="button-3"><p>3</p></li>
+        <li class="ratings-button" id="button-4"><p>4</p></li>
+        <li class="ratings-button" id="button-5"><p>5</p></li>
+      </ul>
+      <button id="submit-button">
+        SUBMIT
+      </button>
+    </section>
+  </main>
 
-  How did we do?
 
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
-
-  1 2 3 4 5
-
-  Submit
-
-  <!-- Rating state end -->
-
-  <!-- Thank you state start -->
-
-  You selected <!-- Add rating here --> out of 5
-
-  Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
-
-  <!-- Thank you state end -->
-
-  
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Paul Mork</a>.
   </div>
+  <script>
+    let selectedRating = 0;
+
+    let ratingsButtons = document.getElementsByClassName("ratings-button");
+    let starBox = document.getElementsByClassName("star-box")[0];
+    let ratingsHeading = document.getElementById("ratings-heading");
+    let ratingsParagraph = document.getElementById("ratings-paragraph");
+    let ratingsList = document.getElementById("ratings-list");
+    let submitButton = document.getElementById("submit-button");
+
+    let submitPicture = document.getElementsByClassName("submit-picture")[0];
+    let ratingsReadout = document.getElementById("ratings-readout");
+    let submitParagraph = document.getElementById("submit-paragraph");
+    let submitHeading = document.getElementById("submit-heading");
+
+    function resetBackgroundColor() {
+      let i = 0;
+      for (i = 0; i < ratingsButtons.length; i++) {
+        if (ratingsButtons[i].style.backgroundColor = "hsl(217, 12%, 63%)") {
+          ratingsButtons[i].style.backgroundColor = "";
+          ratingsButtons[i].children[0].style.color = "";
+        }
+      }
+    }
+    let i = 0;
+    for (i = 0; i < ratingsButtons.length; i++) {
+      ratingsButtons[i].onclick = function() {
+        resetBackgroundColor()
+        this.style.backgroundColor = "hsl(217, 12%, 63%)";
+        this.children[0].style.color = "hsl(0, 0%, 100%)";
+        selectedRating = this.innerText;
+      }
+    }
+    submitButton.onclick = function() {
+      if (selectedRating != 0) {
+        starBox.style.display = "none";
+        ratingsHeading.style.display = "none";
+        ratingsParagraph.style.display = "none";
+        ratingsList.style.display = "none";
+        submitButton.style.display = "none";
+
+        submitPicture.style.display = "";
+        submitHeading.style.display = "";
+        submitParagraph.style.display = "";
+        ratingsReadout.style.display = "";
+        ratingsReadout.innerText = `You selected ${selectedRating} out of 5`;
+      }
+    }
+  </script>
 </body>
 </html>
