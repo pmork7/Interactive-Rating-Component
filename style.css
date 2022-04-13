@@ -133,7 +133,6 @@ li > p {
   justify-content: center;
   align-items: center;
   color: hsl(217, 12%, 63%);
-  line-height: 1.5em;
 }
 
 @media only screen and (max-width: 500px) {
@@ -148,6 +147,15 @@ li > p {
     font-weight: 400;
     height: 1em;
     width: 1em;
+  }
+
+  li > p {
+    font-family: Overpass;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: hsl(217, 12%, 63%);
+    line-height: 1.5em;
   }
 
 }
