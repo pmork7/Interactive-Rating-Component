@@ -136,7 +136,9 @@ li > button {
   margin-top: 0.2rem;
   color: hsl(217, 12%, 63%);
   background-color: hsl(213, 19%, 18%);
+  pointer-events: none;
 }
+
 
 @media only screen and (max-width: 500px) {
   li {

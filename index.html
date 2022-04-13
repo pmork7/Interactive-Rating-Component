@@ -83,6 +83,7 @@
       for (i = 0; i < ratingsButtons.length; i++) {
         if (ratingsButtons[i].style.backgroundColor = "hsl(217, 12%, 63%)") {
           ratingsButtons[i].style.backgroundColor = "";
+          ratingsButtons[i].children[0].style.backgroundColor = "";
           ratingsButtons[i].children[0].style.color = "";
         }
       }
@@ -92,9 +93,21 @@
       ratingsButtons[i].onclick = function() {
         resetBackgroundColor()
         this.style.backgroundColor = "hsl(217, 12%, 63%)";
+        this.children[0].style.backgroundColor = "hsl(217, 12%, 63%)";
         this.children[0].style.color = "hsl(0, 0%, 100%)";
         selectedRating = this.innerText;
       }
+      ratingsButtons[i].addEventListener("mouseenter", function() {
+        this.style.backgroundColor = "hsl(25, 97%, 53%)";
+        this.children[0].style.backgroundColor = "hsl(25, 97%, 53%)";
+        this.children[0].style.color = "hsl(0, 0%, 100%)";
+      })
+
+      ratingsButtons[i].addEventListener("mouseleave", function() {
+        this.style.backgroundColor = "";
+        this.children[0].style.backgroundColor = "";
+        this.children[0].style.color = "";
+      })
     }
     submitButton.onclick = function() {
       if (selectedRating != 0) {
