@@ -98,15 +98,19 @@
         selectedRating = this.innerText;
       }
       ratingsButtons[i].addEventListener("mouseenter", function() {
-        this.style.backgroundColor = "hsl(25, 97%, 53%)";
-        this.children[0].style.backgroundColor = "hsl(25, 97%, 53%)";
-        this.children[0].style.color = "hsl(0, 0%, 100%)";
+        if (this.style.backgroundColor != "rgb(149, 158, 172)") {
+          this.style.backgroundColor = "hsl(25, 97%, 53%)";
+          this.children[0].style.backgroundColor = "hsl(25, 97%, 53%)";
+          this.children[0].style.color = "hsl(0, 0%, 100%)";
+        }
       })
 
       ratingsButtons[i].addEventListener("mouseleave", function() {
-        this.style.backgroundColor = "";
-        this.children[0].style.backgroundColor = "";
-        this.children[0].style.color = "";
+        if (this.style.backgroundColor != "rgb(149, 158, 172)") {
+          this.style.backgroundColor = "";
+          this.children[0].style.backgroundColor = "";
+          this.children[0].style.color = "";
+        }
       })
     }
     submitButton.onclick = function() {
