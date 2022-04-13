@@ -133,6 +133,7 @@ li > p {
   justify-content: center;
   align-items: center;
   color: hsl(217, 12%, 63%);
+  line-height: 1.5em;
 }
 
 @media only screen and (max-width: 500px) {
