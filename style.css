@@ -13,7 +13,7 @@ dd {
 
 body {
   background-color: black;
-  min-height: 90vh;
+  min-height: 100vh;
   font-size: 15px;
   font-family: Overpass;
   display: flex;
